@@ -1,0 +1,63 @@
+h1 .weather-now {
+  color: #6493c6;
+  font-size: 144px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-title {
+  font-size: 60px;
+  color: #6493c6;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.col-2 {
+  text-align: center;
+}
+.weather-text {
+  color: #9297a3;
+  margin-bottom: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+.main-icon {
+  /* move the main icon left  */
+  margin-left: -70px;
+}
+.search {
+  color: whitesmoke;
+  background: #6493c6;
+  font-family: "Montserrat", sans-serif;
+}
+.search:hover {
+  color: whitesmoke;
+  background: #527ca8;
+  transition: all ease-in-out 200ms;
+}
+
+.line {
+  margin-left: 50px;
+}
+.weekdays {
+  color: #9297a3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+.forecast {
+  color: #6493c6;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.tomorrow {
+  font-size: 40px;
+}
+.forecast-tomorrow {
+  padding-left: 0%;
+  margin-left: -30px;
+}
+h4 {
+  margin-top: 20px;
+  margin-left: 200px;
+  color: #82aedd;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Project SheCodes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="width: 40rem">
+        <nav class="navbar">
+          <div class="container-fluid justify-content-center">
+            <form class="d-flex" style="width: 80%" role="search" id = "search-form">
+              <input
+              
+               class="form-control rounded-0"
+                type="text" id = "city-input"
+                placeholder="Enter a city"/>
+              <button class="btn rounded-0 search" value = "submit" id = "search-button">
+                
+                Search
+              </button>
+              
+            
+            </form>
+          </div>
+        </nav>
+        <h4>Time</h4>
+        <div class="card-body">
+        
+        <div class="hstack gap-5 justify-content-center">
+        <div class="line"> 
+          <h5 class="card-title" id = "city-title"> 
+            <span class="main-icon" >
+              <img src="images/cloudy (2).png" width="60px"/>
+            </span> 
+            Vancouver 
+          </h5>
+          <h1><div class="weather-now" id="temperature">12°C</div></h1>
+          <div class="text-center h3 weather-text">Cloudy</div> 
+        </div>
+
+        <div class="vr align-self-center" style="height: 200px;"></div>
+
+      <div class="text-center forecast-tomorrow">
+          <img src="images/sun.png" width="60px"/>
+          <div class="weekdays">Tomorrow</div>
+          <div class="forecast tomorrow">11°C</div>
+          <div class ="weekdays">Sunny</div>
+        </div>
+
+        </div>
+
+
+       <div class="class-justify-content-center"><div class="hstack gap-2 justify-content-center">
+            <div class="col-2 weekdays">Tomorrow</div>
+            <div class="col-2 weekdays">Monday</div>
+              
+            <div class="col-2 weekdays">Tuesday</div>
+             
+            <div class="col-2 weekdays">Wednesday</div>
+             
+            <div class="col-2 weekdays">Thursday</div>
+            
+        </div>
+          <div class="hstack gap-1 justify-content-center">
+            <div class="col-2 forecast">11°C</div>
+             <!-- <div class="vr"style="height: 100px"></div> -->
+             <div class="vr"></div>
+            <div class="col-2 forecast" >9°C</div>
+            <div class="vr"></div>
+            <div class="col-2 forecast">5°C</div>
+            <div class="vr"></div>
+            <div class="col-2 forecast">2°C</div>
+            <div class="vr"></div>
+            <div class="col-2 forecast">12°C</div>
+           
+        </div>
+
+        <div class="hstack gap-2 justify-content-center">
+          
+          <div class="col-2"> <img src="images/sun.png" width="30px"/></div>
+        
+          <div class="col-2"> <img src="images/cloudy (2).png" width="30px"/></div>
+      
+          <div class="col-2"> <img src="images/rain.png" width="30px"/></div>
+     
+          <div class="col-2"> <img src="images/rain.png" width="30px"/></div>
+          <div class="col-2"><img src="images/sun.png" width="30px"/></div>
+      </div>
+
+         </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script>
+
+function showTempCity(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let city = response.data.name;
+
+  let currentTemp = document.querySelector("#temperature");
+  let cityName = document.querySelector("#city-title");
+
+  cityName.innerHTML = `${city}`;
+  currentTemp.innerHTML = `${temperature}°C`;
+}
+
+function retrieveCity(event) {
+  event.preventDefault();
+  let apiKey = "6782253072f7d90462731a624097fc54";
+  let units = "metric";
+  let cityInput = document.querySelector("#city-input").value;
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+  let apiUrl = `${apiEndpoint}q=${cityInput}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showTempCity);
+}
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("click", retrieveCity);
+
+function showCurrentTempCity(response) {
+  console.log(response);
+  let temperature = Math.round(response.data.main.temp);
+  let currentCityName = response.data.name;
+
+  let currentTemp = document.querySelector("#temperature");
+  let currentCity = document.querySelector("#city-title");
+
+  currentTemp.innerHTML = `${temperature}°C`;
+  currentCity.innerHTML = `${currentCityName}`;
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function displayDate() {
+  let now = new Date();
+  let minutes = now.getMinutes();
+  let hour = now.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let h4 = document.querySelector("h4");
+  h4.innerHTML = `${day}, ${hour}:${minutes}`;
+}
+
+displayDate();
+
+function cityDisplay(event) {
+  event.preventDefault();
+  let cityName = document.querySelector("#city-input");
+  let cityTitle = document.querySelector("#city-title");
+  cityTitle.innerHTML = capitalizeFirstLetter(cityName.value);
+}
+</script>
+  </body>
+</html>
