@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Project SheCodes</title>
+    <title>Week 2 Homework</title>
+    <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,11 +30,12 @@
                 type="text" id = "city-input"
                 placeholder="Enter a city"/>
               <button class="btn rounded-0 search" value = "submit" id = "search-button">
-                
+
                 Search
               </button>
-              
-            
+              <button class="btn rounded-0 location" value = "submit" id = "location-button">   
+                Location
+              </button>
             </form>
           </div>
         </nav>
@@ -108,6 +110,8 @@
       </div>
       
     </div>
+  </body>
+</html>
 
 
     <div> <a href = "https://github.com/lmiya9/SheCodes-Weather-App-Project"> Open-sourced code </a> by Mia Lee</div>
@@ -165,7 +169,7 @@ function displayDate() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Saturday"
   ];
   let day = days[now.getDay()];
   let h4 = document.querySelector("h4");
@@ -180,6 +184,29 @@ function cityDisplay(event) {
   let cityTitle = document.querySelector("#city-title");
   cityTitle.innerHTML = capitalizeFirstLetter(cityName.value);
 }
+
+let locationButton = document.querySelector("#location-button");
+
+// Gets called on click
+locationButton.addEventListener("click", onLocationClick);
+function onLocationClick(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(onPositionReceived);
+}
+
+function onPositionReceived(position) {
+  let apiKey = "6782253072f7d90462731a624097fc54";
+  let units = "metric";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl1).then(showTempCity);
+}
+
+// Called right when the page begins
+navigator.geolocation.getCurrentPosition(onPositionReceived);
+
 </script>
   </body>
 </html>

@@ -61,3 +61,15 @@ h4 {
   margin-left: 200px;
   color: #82aedd;
 }
+
+.location {
+  color: #6493c6;
+  border-color: #6493c6;
+}
+
+.location:hover {
+  color: #5982af;
+  border-color: #5982af;
+  background-color: #f5f4f4;
+  transition: all ease-in-out 200ms;
+}
