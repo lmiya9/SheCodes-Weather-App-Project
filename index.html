@@ -12,28 +12,44 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="src/styles.css">
-<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="card" style="width: 40rem">
         <nav class="navbar">
           <div class="container-fluid justify-content-center">
-            <form class="d-flex" style="width: 80%" role="search" id = "search-form">
+            <form
+              class="d-flex"
+              style="width: 80%"
+              role="search"
+              id="search-form"
+            >
               <input
-              
-               class="form-control rounded-0"
-                type="text" id = "city-input"
-                placeholder="Enter a city"/>
-              <button class="btn rounded-0 search" value = "submit" id = "search-button">
-
+                class="form-control rounded-0"
+                type="text"
+                id="city-input"
+                placeholder="Enter a city"
+              />
+              <button
+                class="btn rounded-0 search"
+                value="submit"
+                id="search-button"
+              >
                 Search
               </button>
-              <button class="btn rounded-0 location" value = "submit" id = "location-button">   
+              <button
+                class="btn rounded-0 location"
+                value="submit"
+                id="location-button"
+              >
                 Location
               </button>
             </form>
@@ -41,80 +57,79 @@
         </nav>
         <h4>Time</h4>
         <div class="card-body">
-        
-        <div class="hstack gap-5 justify-content-center">
-        <div class="line"> 
-          <h5 class="card-title" id = "city-title"> 
-            <span class="main-icon" >
-              <img src="images/cloudy (2).png" width="60px"/>
-            </span> 
-            Vancouver 
-          </h5>
-          <h1><div class="weather-now" id="temperature">12°C</div></h1>
-          <div class="text-center h3 weather-text">Cloudy</div> 
-        </div>
+          <div class="hstack gap-5 justify-content-center">
+            <div class="line">
+              <h5 class="card-title" id="city-title">
+                <span class="main-icon">
+                  <img src="images/cloudy (2).png" width="60px" />
+                </span>
+                Vancouver
+              </h5>
+              <h1><div class="weather-now" id="temperature">12°C</div></h1>
+              <div class="text-center h3 weather-text">Cloudy</div>
+            </div>
 
-        <div class="vr align-self-center" style="height: 200px;"></div>
+            <div class="vr align-self-center" style="height: 200px"></div>
 
-      <div class="text-center forecast-tomorrow">
-          <img src="images/sun.png" width="60px"/>
-          <div class="weekdays">Tomorrow</div>
-          <div class="forecast tomorrow">11°C</div>
-          <div class ="weekdays">Sunny</div>
-        </div>
+            <div class="text-center forecast-tomorrow">
+              <img src="images/sun.png" width="60px" />
+              <div class="weekdays">Tomorrow</div>
+              <div class="forecast tomorrow">11°C</div>
+              <div class="weekdays">Sunny</div>
+            </div>
+          </div>
 
-        </div>
+          <div class="class-justify-content-center">
+            <div class="hstack gap-2 justify-content-center">
+              <div class="col-2 weekdays">Tomorrow</div>
+              <div class="col-2 weekdays">Monday</div>
 
+              <div class="col-2 weekdays">Tuesday</div>
 
-       <div class="class-justify-content-center"><div class="hstack gap-2 justify-content-center">
-            <div class="col-2 weekdays">Tomorrow</div>
-            <div class="col-2 weekdays">Monday</div>
-              
-            <div class="col-2 weekdays">Tuesday</div>
-             
-            <div class="col-2 weekdays">Wednesday</div>
-             
-            <div class="col-2 weekdays">Thursday</div>
-            
-        </div>
-          <div class="hstack gap-1 justify-content-center">
-            <div class="col-2 forecast">11°C</div>
-             <!-- <div class="vr"style="height: 100px"></div> -->
-             <div class="vr"></div>
-            <div class="col-2 forecast" >9°C</div>
-            <div class="vr"></div>
-            <div class="col-2 forecast">5°C</div>
-            <div class="vr"></div>
-            <div class="col-2 forecast">2°C</div>
-            <div class="vr"></div>
-            <div class="col-2 forecast">12°C</div>
-           
-        </div>
+              <div class="col-2 weekdays">Wednesday</div>
 
-        <div class="hstack gap-2 justify-content-center">
-          
-          <div class="col-2"> <img src="images/sun.png" width="30px"/></div>
-        
-          <div class="col-2"> <img src="images/cloudy (2).png" width="30px"/></div>
-      
-          <div class="col-2"> <img src="images/rain.png" width="30px"/></div>
-     
-          <div class="col-2"> <img src="images/rain.png" width="30px"/></div>
-          <div class="col-2"><img src="images/sun.png" width="30px"/></div>
-      </div>
+              <div class="col-2 weekdays">Thursday</div>
+            </div>
+            <div class="hstack gap-1 justify-content-center">
+              <div class="col-2 forecast">11°C</div>
+              <!-- <div class="vr"style="height: 100px"></div> -->
+              <div class="vr"></div>
+              <div class="col-2 forecast">9°C</div>
+              <div class="vr"></div>
+              <div class="col-2 forecast">5°C</div>
+              <div class="vr"></div>
+              <div class="col-2 forecast">2°C</div>
+              <div class="vr"></div>
+              <div class="col-2 forecast">12°C</div>
+            </div>
 
-         </div>
+            <div class="hstack gap-2 justify-content-center">
+              <div class="col-2"><img src="images/sun.png" width="30px" /></div>
+
+              <div class="col-2">
+                <img src="images/cloudy (2).png" width="30px" />
+              </div>
+
+              <div class="col-2">
+                <img src="images/rain.png" width="30px" />
+              </div>
+
+              <div class="col-2">
+                <img src="images/rain.png" width="30px" />
+              </div>
+              <div class="col-2"><img src="images/sun.png" width="30px" /></div>
+            </div>
           </div>
         </div>
-        
       </div>
-      
     </div>
   </body>
 </html>
 
-
-    <div> <a href = "https://github.com/lmiya9/SheCodes-Weather-App-Project"> Open-sourced code </a> by Mia Lee</div>
+<div>
+  <a href="https://github.com/lmiya9/SheCodes-Weather-App-Project">
+    Open-sourced code
+  </a>
+  by Mia Lee
+</div>
 <script src="src/app.js"></script>
-  </body>
-</html>
