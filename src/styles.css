@@ -21,7 +21,6 @@ h1 .weather-now {
   font-family: "Montserrat", sans-serif;
 }
 .main-icon {
-  /* move the main icon left  */
   display: block;
   margin: 0 auto;
 }

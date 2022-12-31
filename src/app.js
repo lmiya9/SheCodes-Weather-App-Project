@@ -12,6 +12,13 @@ function showTempCity(response) {
   let iconElem = document.querySelector("#main-image");
   iconElem.src = icon;
 
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let humidityElement = document.querySelector("#humidity");
+  let precipitationElement = document.querySelector("#precipitation");
+
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
+  humidityElement.innerHTML = response.data.main.humidity;
+
   celciusTemperature = response.data.main.temp;
 }
 function retrieveCity(event) {
