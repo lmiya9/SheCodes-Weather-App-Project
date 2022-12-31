@@ -22,7 +22,8 @@ h1 .weather-now {
 }
 .main-icon {
   /* move the main icon left  */
-  margin-left: -70px;
+  display: block;
+  margin: 0 auto;
 }
 .search {
   color: whitesmoke;
@@ -54,11 +55,12 @@ h1 .weather-now {
 }
 .forecast-tomorrow {
   padding-left: 0%;
-  margin-left: -30px;
 }
+
 h4 {
-  margin-top: 20px;
-  margin-left: 200px;
+  margin-top: 30px;
+  margin-left: -70px;
+  text-align: center;
   color: #82aedd;
 }
 

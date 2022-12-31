@@ -1,14 +1,19 @@
 function showTempCity(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
-
+  let weatherDescription = document.querySelector("#weather-description");
   let currentTemp = document.querySelector("#temperature");
   let cityName = document.querySelector("#city-title");
+  let icon = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+  cityName.textContent = `${city}`;
+  currentTemp.innerHTML = `${temperature}`;
+  weatherDescription.innerHTML = response.data.weather[0].description;
 
-  cityName.innerHTML = `${city}`;
-  currentTemp.innerHTML = `${temperature}°C`;
+  let iconElem = document.querySelector("#main-image");
+  iconElem.src = icon;
+
+  celciusTemperature = response.data.main.temp;
 }
-
 function retrieveCity(event) {
   event.preventDefault();
   let apiKey = "6782253072f7d90462731a624097fc54";
@@ -19,6 +24,7 @@ function retrieveCity(event) {
 
   axios.get(apiUrl).then(showTempCity);
 }
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("click", retrieveCity);
 
@@ -30,7 +36,7 @@ function showCurrentTempCity(response) {
   let currentTemp = document.querySelector("#temperature");
   let currentCity = document.querySelector("#city-title");
 
-  currentTemp.innerHTML = `${temperature}°C`;
+  currentTemp.innerHTML = `${temperature}`;
   currentCity.innerHTML = `${currentCityName}`;
 }
 
@@ -86,3 +92,15 @@ function onPositionReceived(position) {
 
 // Called right when the page begins
 navigator.geolocation.getCurrentPosition(onPositionReceived);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celciusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);

@@ -23,7 +23,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="card" style="width: 40rem">
+      <div class="card" style="width: 60rem">
         <nav class="navbar">
           <div class="container-fluid justify-content-center">
             <form
@@ -59,23 +59,30 @@
         <div class="card-body">
           <div class="hstack gap-5 justify-content-center">
             <div class="line">
-              <h5 class="card-title" id="city-title">
-                <span class="main-icon">
-                  <img src="images/cloudy (2).png" width="60px" />
-                </span>
-                Vancouver
-              </h5>
-              <h1><div class="weather-now" id="temperature">12°C</div></h1>
-              <div class="text-center h3 weather-text">Cloudy</div>
+              <div class="main-icon text-center">
+                <img
+                  id="main-image"
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  width="100px"
+                />
+              </div>
+
+              <h5 class="card-title text-center" id="city-title">Vancouver</h5>
+
+              <h1>
+                <span class="weather-now text-center" id="temperature">12</span>
+                <span id="units"
+                  >C | <a href="#" id="fahrenheit-link">F</a></span
+                >
+              </h1>
+              <div class="text-center h3 weather-text" id="weather-description">
+                Weather Description
+              </div>
             </div>
 
-            <div class="vr align-self-center" style="height: 200px"></div>
-
-            <div class="text-center forecast-tomorrow">
-              <img src="images/sun.png" width="60px" />
-              <div class="weekdays">Tomorrow</div>
-              <div class="forecast tomorrow">11°C</div>
-              <div class="weekdays">Sunny</div>
+            <div class="text-left forecast-tomorrow">
+              <div class="weekdays" id="wind-speed">Wind Speed</div>
+              <div class="weekdays" id="precipitation">Precipitation</div>
             </div>
           </div>
 
