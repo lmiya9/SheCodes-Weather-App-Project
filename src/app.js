@@ -119,3 +119,28 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row d-flex justify-content-center">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                
+              <div class="col-2">
+                <div class="forecast-day">${day}</div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" width="70px"/>
+                <div class="forecast-temp">
+                  <span class="forecast-max" >5 </span>
+                <span class="forecast-min">0</span>
+              </div>
+              </div>
+            
+            `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+  forecastHTML = `</div>`;
+}
+displayForecast();
