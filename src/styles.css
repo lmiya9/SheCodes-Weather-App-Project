@@ -1,3 +1,7 @@
+.card {
+  margin: 0 auto;
+  float: none;
+}
 h1 .weather-now {
   color: #6493c6;
   font-size: 144px;
@@ -13,11 +17,9 @@ h1.units {
 }
 
 .card-title {
-  font-size: 60px;
+  font-size: 50px;
   color: #6493c6;
   font-family: "Montserrat", sans-serif;
-  text-align: center;
-  margin-left: -70px;
 }
 
 .col-2 {
@@ -28,7 +30,6 @@ h1.units {
   margin-bottom: 40px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  margin-left: -90px;
 }
 .main-icon {
   display: block;
@@ -46,9 +47,6 @@ h1.units {
   transition: all ease-in-out 200ms;
 }
 
-.line {
-  margin-left: 50px;
-}
 .forecast-temp {
   color: #9297a3;
   font-family: "Montserrat", sans-serif;
@@ -60,6 +58,7 @@ li {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   list-style: none;
+  margin-left: 80px;
 }
 
 .forecast-day {
@@ -71,11 +70,12 @@ li {
 .forecast-min {
   opacity: 0.6;
 }
-h4 {
+.time {
   margin-top: 30px;
-  margin-left: -70px;
-  text-align: center;
-  color: #82aedd;
+  margin-left: 105px;
+  color: #9297a3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 
 .location {

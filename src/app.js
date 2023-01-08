@@ -64,8 +64,8 @@ function displayDate() {
     "Saturday",
   ];
   let day = days[now.getDay()];
-  let h4 = document.querySelector("h4");
-  h4.innerHTML = `${day}, ${hour}:${minutes}`;
+  let time = document.querySelector("#time");
+  time.innerHTML = `Last updated: ${day}, ${hour}:${minutes}`;
 }
 
 displayDate();
