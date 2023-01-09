@@ -89,3 +89,7 @@ li {
   background-color: #f5f4f4;
   transition: all ease-in-out 200ms;
 }
+
+.git-link {
+  margin-left: 480px;
+}
