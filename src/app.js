@@ -47,7 +47,7 @@ function showTempCity(response) {
   let cityName = document.querySelector("#city-title");
   let icon = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   cityName.textContent = `${city}`;
-  currentTemp.innerHTML = `${temperature}<span class ="degrees">°C</span>`;
+  currentTemp.innerHTML = `${temperature}<sup class = "degrees">°C</sup>`;
   weatherDescription.innerHTML = response.data.weather[0].description;
 
   let iconElem = document.querySelector("#main-image");
@@ -83,7 +83,7 @@ function showCurrentTempCity(response) {
   let currentTemp = document.querySelector("#temperature");
   let currentCity = document.querySelector("#city-title");
 
-  currentTemp.innerHTML = `${temperature}<span class ="degrees">°C</span>`;
+  currentTemp.innerHTML = `${temperature}<sup class = "degrees">°C</sup>`;
   currentCity.innerHTML = `${currentCityName}`;
 }
 
