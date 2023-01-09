@@ -2,14 +2,7 @@
   margin: 0 auto;
   float: none;
 }
-h1 .weather-now {
-  color: #6493c6;
-  font-size: 144px;
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-}
-
-h1.units {
+.weather-now {
   color: #6493c6;
   font-size: 144px;
   text-align: center;
@@ -92,4 +85,7 @@ li {
 
 .git-link {
   margin-left: 480px;
+}
+.degrees {
+  font-size: 50px;
 }

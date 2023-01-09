@@ -47,7 +47,7 @@ function showTempCity(response) {
   let cityName = document.querySelector("#city-title");
   let icon = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   cityName.textContent = `${city}`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}<span class ="degrees">°C</span>`;
   weatherDescription.innerHTML = response.data.weather[0].description;
 
   let iconElem = document.querySelector("#main-image");
@@ -58,8 +58,6 @@ function showTempCity(response) {
 
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.main.humidity;
-
-  celciusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
 }
@@ -85,7 +83,7 @@ function showCurrentTempCity(response) {
   let currentTemp = document.querySelector("#temperature");
   let currentCity = document.querySelector("#city-title");
 
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}<span class ="degrees">°C</span>`;
   currentCity.innerHTML = `${currentCityName}`;
 }
 
@@ -146,26 +144,5 @@ function onPositionReceived(position) {
 
 // Called right when the page begins
 navigator.geolocation.getCurrentPosition(onPositionReceived);
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let celciusTemperature = null;
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
 
 displayDate();
