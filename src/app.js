@@ -39,6 +39,29 @@ function getForecast(coordinates) {
   axios.get(apiURL).then(displayForecast);
 }
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `Last updated: ${day}, ${hours}:${minutes}`;
+}
+
 function showTempCity(response) {
   let temperature = Math.round(response.data.main.temp);
   let city = response.data.name;
@@ -60,6 +83,9 @@ function showTempCity(response) {
   humidityElement.innerHTML = response.data.main.humidity;
 
   getForecast(response.data.coord);
+
+  let timeElement = document.querySelector("#time");
+  timeElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 function retrieveCity(event) {
   event.preventDefault();
@@ -91,7 +117,7 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function displayDate() {
+/*function displayDate() {
   let now = new Date();
   let minutes = now.getMinutes();
   let hour = now.getHours();
@@ -107,7 +133,7 @@ function displayDate() {
   let day = days[now.getDay()];
   let time = document.querySelector("#time");
   time.innerHTML = `Last updated: ${day}, ${hour}:${minutes}`;
-}
+} */
 
 function formatTimestamp(timestamp) {
   let date = new Date(timestamp * 1000);
